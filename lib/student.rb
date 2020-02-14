@@ -33,8 +33,8 @@ class Student
   
   def save
     sql = <<-SQL
-       sql = "DROP TABLE IF EXISTS students"
-    DB[:conn].execute(sql)
+      INSERT INTO students (name, grade) 
+      VALUES (?, ?)
     SQL
 
     DB[:conn].execute(sql, self.name, self.grade)
